@@ -9,10 +9,9 @@ import java.sql.Statement;
 public class Pizza {
 
     public Connection connect() {
-        String url = "jdbc:sqlite:C:\\Users\\justin\\eclipse-workspace\\DatabaseConnection\\src\\info.db";
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection("jdbc:sqlite:info.db");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
