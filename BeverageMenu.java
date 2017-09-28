@@ -14,6 +14,7 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.JPasswordField;
 import javax.imageio.ImageIO;
+import javax.swing.AbstractButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -22,10 +23,14 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.SpringLayout;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class BeverageMenu extends JFrame{
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -47,7 +52,7 @@ public class BeverageMenu extends JFrame{
 	 * Create the application.
 	 */
 	public BeverageMenu(double totalPrice, FinalOrder order) {
-		setBounds(100, 100, 698, 389);
+		setBounds(100, 100, 430, 454);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.control);
@@ -55,59 +60,93 @@ public class BeverageMenu extends JFrame{
 		setContentPane(contentPane);
 		Beverage beverage = new Beverage();
 		
-		JButton btnCoke = new JButton();
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(214, 17, 194, 342);
+		contentPane.add(textPane);
+		
+		
+		JButton btnCoke = new JButton("Coke");
+		btnCoke.setBounds(10, 17, 194, 48);
 		btnCoke.setForeground(Color.WHITE);
 		btnCoke.setHorizontalAlignment(SwingConstants.TRAILING);
-		btnCoke.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\justin\\eclipse-workspace\\DatabaseConnection\\src\\3mu54jrdyl_corporate_logo_coca_cola (1).jpg").getImage().getScaledInstance(160, 40, Image.SCALE_DEFAULT)));
+		Image img = new ImageIcon(this.getClass().getResource("3mu54jrdyl_corporate_logo_coca_cola.jpg")).getImage();
+		btnCoke.setIcon(new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(160, 40, Image.SCALE_DEFAULT)));
 		btnCoke.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverage.addPrice(2.50);
 				beverage.setBeverage("Coke");
+				textPane.setText(textPane.getText() + "\n" + "Coke......2.50");
 			}
 		});
 		btnCoke.setBackground(Color.WHITE);
 		
 		JButton btnPepsi = new JButton("Pepsi");
+		btnPepsi.setBounds(11, 134, 193, 48);
+		btnPepsi.setBackground(Color.WHITE);
+		btnPepsi.setForeground(Color.WHITE);
+		Image img1 = new ImageIcon(this.getClass().getResource("Pepsi.jpg")).getImage();
+		btnPepsi.setIcon(new ImageIcon(new ImageIcon(img1).getImage().getScaledInstance(275, 125, Image.SCALE_DEFAULT)));
 		btnPepsi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverage.addPrice(2.50);
 				beverage.setBeverage("Pepsi");
+				textPane.setText(textPane.getText() + "\n" + "Pepsi......2.50");
 			}
 		});
 		
 		JButton btnSprite = new JButton("Sprite");
+		btnSprite.setBounds(11, 193, 193, 48);
+		btnSprite.setBackground(Color.WHITE);
+		Image img2 = new ImageIcon(this.getClass().getResource("Sprite.png")).getImage();
+		btnSprite.setIcon(new ImageIcon(new ImageIcon(img2).getImage().getScaledInstance(200, 75, Image.SCALE_DEFAULT)));
 		btnSprite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverage.addPrice(2.50);
 				beverage.setBeverage("Sprite");
+				textPane.setText(textPane.getText() + "\n" + "Sprite.........2.50");
 			}
 		});
 		
-		JButton btnMountainDew = new JButton("Mountain Dew");
+		JButton btnMountainDew = new JButton();
+		btnMountainDew.setBackground(Color.WHITE);
+		Image img3 = new ImageIcon(this.getClass().getResource("MountainDew.jpg")).getImage();
+		btnMountainDew.setIcon(new ImageIcon(new ImageIcon(img3).getImage().getScaledInstance(160, 80, Image.SCALE_DEFAULT)));
+		btnMountainDew.setBounds(10, 75, 193, 48);
 		btnMountainDew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverage.addPrice(2.50);
 				beverage.setBeverage("Mountain Dew");
+				textPane.setText(textPane.getText() + "\n" + "Mountain Dew....2.50");
 			}
 		});
 		
-		JButton btnOrangeFanta = new JButton("Orange Fanta");
+		JButton btnOrangeFanta = new JButton();
+		Image img4 = new ImageIcon(this.getClass().getResource("fanta.jpg")).getImage();
+		btnOrangeFanta.setIcon(new ImageIcon(new ImageIcon(img4).getImage().getScaledInstance(200, 75, Image.SCALE_DEFAULT)));
+		btnOrangeFanta.setBounds(10, 252, 193, 48);
 		btnOrangeFanta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverage.addPrice(2.50);
 				beverage.setBeverage("Orange Fanta");
+				textPane.setText(textPane.getText() + "\n" + "Orange Fanta...2.50");
 			}
 		});
 		
-		JButton btnDrpepper = new JButton("Dr.Pepper");
+		JButton btnDrpepper = new JButton();
+		btnDrpepper.setBackground(Color.WHITE);
+		Image img5 = new ImageIcon(this.getClass().getResource("DrPepper.jpg")).getImage();
+		btnDrpepper.setIcon(new ImageIcon(new ImageIcon(img5).getImage().getScaledInstance(100, 48, Image.SCALE_DEFAULT)));
+		btnDrpepper.setBounds(10, 311, 193, 48);
 		btnDrpepper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverage.addPrice(2.50);
 				beverage.setBeverage("Dr.Pepper");
+				textPane.setText(textPane.getText() + "\n" + "Dr.Pepper....2.50");
 			}
 		});
 		
 		JButton btnNewButton = new JButton("Next");
+		btnNewButton.setBounds(318, 370, 90, 29);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				beverageReceipt receipt = new beverageReceipt(beverage, totalPrice, order);
@@ -116,35 +155,7 @@ public class BeverageMenu extends JFrame{
 			}
 		});
 		contentPane.setLayout(null);
-		SpringLayout sl_contentPane = new SpringLayout();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnCoke, 12, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnCoke, 0, SpringLayout.WEST, btnPepsi);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnCoke, -6, SpringLayout.NORTH, btnMountainDew);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 250, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 356, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, 279, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 446, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnDrpepper, 210, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnDrpepper, 6, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnDrpepper, 239, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnDrpepper, 444, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnOrangeFanta, 170, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnOrangeFanta, 6, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnOrangeFanta, 199, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnOrangeFanta, 444, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnMountainDew, 47, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnMountainDew, 6, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnMountainDew, 76, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnMountainDew, 444, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnSprite, 129, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnSprite, 6, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnSprite, 158, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnSprite, 444, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnPepsi, 88, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnPepsi, 6, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnPepsi, 117, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnPepsi, 444, SpringLayout.WEST, contentPane);
-		contentPane.setLayout(sl_contentPane);
+		contentPane.setLayout(null);
 		contentPane.add(btnCoke);
 		contentPane.add(btnPepsi);
 		contentPane.add(btnSprite);
@@ -152,5 +163,20 @@ public class BeverageMenu extends JFrame{
 		contentPane.add(btnOrangeFanta);
 		contentPane.add(btnDrpepper);
 		contentPane.add(btnNewButton);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Pie za = new Pie();
+				FinalChecker check = new FinalChecker(za, order);
+				check.setVisible(true);
+				dispose();
+			}
+		});
+		btnBack.setBounds(10, 377, 89, 23);
+		contentPane.add(btnBack);
+		
+
+			
 	}
 }
