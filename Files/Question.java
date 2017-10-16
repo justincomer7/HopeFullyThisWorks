@@ -40,14 +40,14 @@ public class Question {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 137);
+		frame.setBounds(100, 100, 404, 140);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Are you a new customer? ");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(89, 11, 250, 42);
+		lblNewLabel.setBounds(78, 11, 240, 42);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnYes = new JButton("Yes");
@@ -59,7 +59,7 @@ public class Question {
 				info.setVisible(true);
 			}
 		});
-		btnYes.setBounds(89, 64, 89, 23);
+		btnYes.setBounds(78, 64, 89, 23);
 		frame.getContentPane().add(btnYes);
 
 		
@@ -72,7 +72,7 @@ public class Question {
 				info.setVisible(true);
 			}
 		});
-		btnNo.setBounds(221, 64, 89, 23);
+		btnNo.setBounds(229, 64, 89, 23);
 		frame.getContentPane().add(btnNo);
 	}
 
