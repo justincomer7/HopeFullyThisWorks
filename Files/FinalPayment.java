@@ -20,7 +20,7 @@ public class FinalPayment extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FinalPayment frame = new FinalPayment((Double) null , (Double) null, null);
+					FinalPayment frame = new FinalPayment( (Double) null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,9 +32,9 @@ public class FinalPayment extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FinalPayment(double totalPrice, double option, FinalOrder order) {
+	public FinalPayment(double option, FinalOrder order) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 421, 174);
+		setBounds(100, 100, 433, 186);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -51,7 +51,7 @@ public class FinalPayment extends JFrame {
 		
 		if(option == 2)
 		{
-			textPane.setText("Cash" + "\n" + totalPrice);
+			textPane.setText("Cash/Check" + "\n" + order.getPrice());
 		}
 		JButton btnFinalize = new JButton("Finalize");
 		btnFinalize.addActionListener(new ActionListener() {
@@ -67,7 +67,7 @@ public class FinalPayment extends JFrame {
 		JButton btnChange = new JButton("Change option");
 		btnChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PaymentOption option = new PaymentOption(totalPrice, order);
+				PaymentOption option = new PaymentOption(order);
 				option.setVisible(true);
 				dispose();
 			}
@@ -75,7 +75,16 @@ public class FinalPayment extends JFrame {
 		btnChange.setBounds(274, 58, 123, 23);
 		contentPane.add(btnChange);
 		
+		
+		//send user back to log in 
 		JButton btnNewButton = new JButton("Start Over");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PhoneNumber phone = new PhoneNumber();
+				phone.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(274, 104, 123, 23);
 		contentPane.add(btnNewButton);
 	}
