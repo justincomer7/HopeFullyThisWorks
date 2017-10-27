@@ -95,6 +95,7 @@ public class PizzaToppingSelector extends JFrame {
 				
 				JComboBox[] boxes = {PepperoniBox, ChickenStrips, BaconBox, HamBox, SalamiBox};
 				JLabel[] labels = {PepperoniLabel, ChickenLabel, BaconLabel, HamLabel, SalamiLabel};
+				boolean topped = false;
 				
 				for(int i = 0; i < boxes.length; i++)
 				{
@@ -102,10 +103,15 @@ public class PizzaToppingSelector extends JFrame {
 					
 					if(option != "------")
 					{
+						topped = true;
 						za.setToppings(labels[i].getText());
 						za.setPrice(prices[i]);
 					}
 				}
+				
+				//if not topped, sets toppings to None 
+				if(!topped)
+					za.setToppings("None");
 				
 				PizzaExtraSelector selector = new PizzaExtraSelector(za, order, prices, toppings);
 				selector.setVisible(true);

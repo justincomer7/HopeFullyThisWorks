@@ -37,7 +37,7 @@ public class FinalChecker extends JFrame {
 	 */
 	public FinalChecker(Pie za, FinalOrder order) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 414, 474);
+		setBounds(100, 100, 426, 474);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,13 +55,14 @@ public class FinalChecker extends JFrame {
 				selector.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(299, 146, 89, 23);
+		btnNewButton.setBounds(299, 146, 106, 23);
 		contentPane.add(btnNewButton);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(10, 11, 279, 413);
 		contentPane.add(textArea);
 		textArea.setText(order.getOrder() + "\n" + order.getPrice() +"\n");
+		textArea.setEditable(false);
 		
 		JButton btnStartOver = new JButton("Start over");
 		btnStartOver.addActionListener(new ActionListener() {
@@ -73,19 +74,19 @@ public class FinalChecker extends JFrame {
 				dispose();
 			}
 		});
-		btnStartOver.setBounds(299, 180, 89, 23);
+		btnStartOver.setBounds(299, 180, 106, 23);
 		contentPane.add(btnStartOver);
 		
 		JButton btnContinue = new JButton("Continue");
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				BeverageMenu menu = new BeverageMenu(order.getPrice(), order);
+				BeverageMenu menu = new BeverageMenu(order);
 				menu.setVisible(true);
 				dispose();
 			}
 		});
-		btnContinue.setBounds(299, 214, 89, 23);
+		btnContinue.setBounds(299, 214, 106, 23);
 		contentPane.add(btnContinue);
 		za.clearPizza();
 		

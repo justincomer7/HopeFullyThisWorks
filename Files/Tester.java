@@ -59,7 +59,6 @@ public class Tester extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				FinalOrder order = new FinalOrder();
 				order.setNumber(string);
-				order.setOrder(newpizza.selectUser(string));
 				PizzaBaseSelector base = new PizzaBaseSelector(order);
 				base.setVisible(true);
 				dispose();
@@ -74,18 +73,21 @@ public class Tester extends JFrame {
 				
 				if(win == 1)
 				{
+					//sends back to information input 
 					InformationInput info = new InformationInput();
 					info.setVisible(true);
 					dispose();
 				}
 				if(win == 2)
 				{
+					//sends back to phone number input 
 					PhoneNumber phone = new PhoneNumber();
 					phone.setVisible(true);
 					dispose();
 				}
 				if(win == 3)
 				{
+					//sends back to updater 
 					Update update = new Update(string);
 					update.setVisible(true);
 					dispose();

@@ -17,7 +17,7 @@ public class Sign extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JTextPane textField_1;
 
 	/**
 	 * Launch the application.
@@ -26,7 +26,7 @@ public class Sign extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Sign frame = new Sign(null);
+					Sign frame = new Sign(null, (Double) null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class Sign extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Sign(FinalOrder order) {
+	public Sign(FinalOrder order, double option) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 382, 497);
 		contentPane = new JPanel();
@@ -64,14 +64,17 @@ public class Sign extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				//ensures a signature is present 
-				if(textField.getText().trim().isEmpty())
+				if(option == 1)
 				{
-					NotSigned signed = new NotSigned(order);
-					signed.setVisible(true);
-					dispose();
+					if(textField.getText().trim().isEmpty())
+					{
+						NotSigned signed = new NotSigned(order);
+						signed.setVisible(true);
+						dispose();
+					}
 				}
 				
-				else
+				else if(option == 2)
 				{
 					
 					//at this time, the order will be saved in the database
@@ -119,12 +122,26 @@ public class Sign extends JFrame {
 		scrollPane.setBounds(235, 11, -223, 384);
 		contentPane.add(scrollPane);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JTextPane();
 		textField_1.setBounds(10, 12, 228, 384);
 		contentPane.add(textField_1);
+		
+		
+		//if paying with card, gives a signature box for the customer to sign 
+		if(option == 1)
 		textField_1.setText(newpizza.selectUser(order.getNumber()) + "\n" + newpizza.selectAddress(order.getNumber()) + "\n" + 
 				newpizza.selectCard(order.getNumber()) + "\n" + order.getOrder() + "\n" + order.getPrice());
-		textField_1.setColumns(10);
+		
+		if (option == 2)
+		{
+			textField_1.setText(newpizza.selectUser(order.getNumber()) + "\n" + newpizza.selectAddress(order.getNumber()) + "\n" + 
+					"Cash/Check" + "\n" + order.getOrder() + "\n" + order.getPrice());
+			
+			textField.setVisible(false);
+			lblNewLabel.setVisible(false);
+		}
+			
+		textField_1.setEditable(false);
 		
 	
 	}

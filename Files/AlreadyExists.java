@@ -54,6 +54,7 @@ public class AlreadyExists extends JFrame {
 				InformationInput info = new InformationInput();
 				info.setVisible(true);
 				dispose();
+				//returns back to information input 
 				
 			}
 		});

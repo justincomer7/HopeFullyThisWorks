@@ -113,6 +113,7 @@ public class PizzaExtraSelector extends JFrame {
 				
 				JComboBox[] boxes = {OlivesBox, OnionBox, JalepenosBox, TomatoesBox, PineappleBox, GreenBox, BananaBox};
 				JLabel[] labels = {OlivesLabel, OnionsLabel, JalepenosLabel, TomatoesLabel, PineappleLabel, GreenPepperLabel, BananaPeppersLabel};
+				boolean extrad = false;
 				
 				for(int i = 0; i < boxes.length; i++)
 				{
@@ -121,9 +122,15 @@ public class PizzaExtraSelector extends JFrame {
 							
 					if(option != "------")
 					{
+						extrad = true;
 						za.setExtras(labels[i].getText());
 					}
 				}
+				
+				if(!extrad)
+					za.setExtras("None");
+				//if no extras selected, sets it to None 
+				
 				FinalChecker checker = new FinalChecker(za, order);
 				checker.setVisible(true);
 				dispose();

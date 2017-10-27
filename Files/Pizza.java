@@ -9,14 +9,17 @@ import java.sql.Statement;
 public class Pizza {
 
     public Connection connect() {
+        String url = "jdbc:sqlite:C:\\\\Users\\\\justin\\\\eclipse-workspace\\\\DatabaseConnection\\\\src\\\\info.db";
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:../info.db");
+            conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return conn;
     }
+    
+    //jdbc:sqlite:C:\\Users\\justin\\eclipse-workspace\\DatabaseConnection\\src\\info.db
 
     public String addUser(String phone, String name, String address, String charge) {
     	String ifuser = "SELECT * FROM Users WHERE phone =?";
@@ -63,9 +66,6 @@ public class Pizza {
             pstmt.setString(1, num);
             ResultSet rs = pstmt.executeQuery();
            if(rs.next())
-        	   if(rs.getString("charge") == " ")
-        		   return "";
-        	   else
                 return (rs.getString("charge"));
             
         } catch (SQLException e) {

@@ -27,7 +27,7 @@ public class beverageReceipt extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					beverageReceipt frame = new beverageReceipt(null, (Double) null, null);
+					beverageReceipt frame = new beverageReceipt(null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class beverageReceipt extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public beverageReceipt(Beverage beverage, double totalPrice, FinalOrder order) {
+	public beverageReceipt(Beverage beverage, FinalOrder order) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 305, 300);
 		contentPane = new JPanel();
@@ -52,13 +52,16 @@ public class beverageReceipt extends JFrame {
 		textArea = new JTextArea();
 		textArea.setBounds(10, 11, 129, 239);
 		contentPane.add(textArea);
-		textArea.setText(beverage.getBeverage() + beverage.getPrice());
-		
+		if(beverage.getPrice() == 0.0)
+			textArea.setText("No Drinks");
+		else
+			textArea.setText(beverage.getBeverage() + beverage.getPrice());
+		textArea.setEditable(false);
 		
 		button = new JButton("Change Selection");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BeverageMenu menu = new BeverageMenu(totalPrice, order);
+				BeverageMenu menu = new BeverageMenu(order);
 				menu.setVisible(true);
 				dispose();
 			}
@@ -81,10 +84,9 @@ public class beverageReceipt extends JFrame {
 		btnNewButton_1 = new JButton("Continue");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				double total = totalPrice + beverage.getPrice();
 				order.setOrder(beverage.getBeverage());
 				order.setNewPrice(beverage.getPrice());
-				PaymentOption option = new PaymentOption(total, order);
+				PaymentOption option = new PaymentOption(order);
 				option.setVisible(true);
 				dispose();
 				

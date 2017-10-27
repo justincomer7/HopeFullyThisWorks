@@ -9,14 +9,13 @@ public class Pie {
 	String Extras;
 	Double Price = 0.00;
 	
-	Pie()
-	{
-		Toppings = " ";
-		PhoneNumber = " ";
-		Size = " ";
-		Sauce = " ";
-		Crust = " ";
-		Extras = " ";
+	Pie(){
+		PhoneNumber = "";
+		Size = "";
+		Sauce = "";
+		Crust = "";
+		Toppings = "";
+		Extras = "";
 	}
 	
 	void setPrice(double price)
@@ -56,7 +55,7 @@ public class Pie {
 	
 	String getPizza()
 	{
-		return (PhoneNumber + "\n" +Size + "\n" + Sauce + "\n" + Crust + "\n" + Toppings + "\n" + Extras);
+		return ("Size: " + Size+"\nSauce: "+Sauce+"\nCrust: "+Crust+"\nToppings: "+Toppings+"\nExtras: " + Extras+"\n");
 		
 	}
 	
@@ -67,12 +66,12 @@ public class Pie {
 	
 	void clearPizza()
 	{
-		Toppings = " ";
-		PhoneNumber = " ";
-		Size = " ";
-		Sauce = " ";
-		Crust = " ";
-		Extras = " ";
+		Toppings = "";
+		PhoneNumber = "";
+		Size = "";
+		Sauce = "";
+		Crust = "";
+		Extras = "";
 	}
 
 }

@@ -118,6 +118,7 @@ public class Update extends JFrame {
 				String other;
 				int option = 1;
 				
+				//if required fields are empty, does not let you continue 
 				if(textFieldName.getText().trim().isEmpty())
 				{
 					NotFilled not = new NotFilled(2, num);

@@ -147,7 +147,8 @@ public class PizzaBaseSelector extends JFrame {
 		Next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				//This creates arrays that will be used in the topping selector 
+				//prices are based on sizes 
 				
 				ButtonModel Size = size.getSelection();
 				za.setSize(Size.getActionCommand());
@@ -220,7 +221,17 @@ public class PizzaBaseSelector extends JFrame {
 		});
 		Next.setBounds(179, 192, 89, 23);
 		contentPane.add(Next);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Tester test = new Tester(order.getNumber(), 2);
+				test.setVisible(true);
+				dispose();
+			}
+		});
+		btnBack.setBounds(10, 192, 89, 23);
+		contentPane.add(btnBack);
 			
 	}
-	
 }

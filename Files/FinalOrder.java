@@ -1,9 +1,17 @@
+import java.text.DecimalFormat;
 
 public class FinalOrder {
 	
-	String Phone = " ";
+	String Phone;
 	String Order;
 	double Price;
+	
+	FinalOrder(){
+		Phone = "";
+		Order = "";
+		Price = 0.0;
+		
+	}
 	
 	void setNumber(String num)
 	{
@@ -29,9 +37,11 @@ public class FinalOrder {
 		return Order;
 	}
 	
-	double getPrice()
+	String getPrice()
 	{
-		return Price;
+		//limits the number of decimal places so it represents a monetary price 
+		DecimalFormat numberformat = new DecimalFormat("#.00");
+		return numberformat.format(Price);
 	}
 	
 	String getNumber()

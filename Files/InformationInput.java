@@ -205,8 +205,8 @@ public class InformationInput extends JFrame {
 					
 				
 				
-				if(option == 1)
-					if(newpizza.addUser(number, name, address, " ") == "false")
+				if(option == 1) {
+					if(newpizza.addUser(number, name, address, null) == "false")
 					{
 						AlreadyExists ae = new AlreadyExists();
 						dispose();
@@ -214,10 +214,7 @@ public class InformationInput extends JFrame {
 					}
 					
 					else {
-						
-						
-						
-						newpizza.addUser(number,  name,  address, " ");
+						newpizza.addUser(number,  name,  address, null);
 						newpizza.addAddress(number, subdivision, intersection, landmark, other);
 						Tester test = new Tester(number, 1);
 						dispose();
@@ -230,7 +227,7 @@ public class InformationInput extends JFrame {
 				
 				
 				
-		});
+		}});
 		btnEnter.setBounds(269, 286, 89, 23);
 		contentPane.add(btnEnter);
 		

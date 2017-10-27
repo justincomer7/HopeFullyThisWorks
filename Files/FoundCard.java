@@ -23,7 +23,7 @@ public class FoundCard extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FoundCard frame = new FoundCard((Double) null, null);
+					FoundCard frame = new FoundCard(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class FoundCard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FoundCard(double totalPrice, FinalOrder order) {
+	public FoundCard(FinalOrder order) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 272, 172);
 		contentPane = new JPanel();
@@ -54,11 +54,13 @@ public class FoundCard extends JFrame {
 		contentPane.add(textPane);
 		Pizza newpizza = new Pizza();
 		textPane.setText(newpizza.selectCard(order.getNumber()));
+		textPane.setEditable(false);
 		
 		JButton btnYes = new JButton("Yes ");
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FinalPayment Final = new FinalPayment(totalPrice, 1 , order);
+				//if card is desired, proceed to final payment 
+				FinalPayment Final = new FinalPayment(1 , order);
 				Final.setVisible(true);
 				dispose();
 			}
@@ -69,7 +71,8 @@ public class FoundCard extends JFrame {
 		JButton btnNo = new JButton("No");
 		btnNo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewCard card = new NewCard(totalPrice, order);
+				//allows user to input new card 
+				NewCard card = new NewCard(order);
 				card.setVisible(true);
 				dispose();
 			}

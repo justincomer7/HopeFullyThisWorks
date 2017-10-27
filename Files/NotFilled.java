@@ -53,12 +53,14 @@ public class NotFilled extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(option == 1)
 				{
+					//sends back to information input 
 					InformationInput input = new InformationInput();
 					input.setVisible(true);
 					dispose();
 				}
 				else if(option == 2)
 				{
+					//sends back to updater 
 					Update update = new Update(num);
 					update.setVisible(true);
 					dispose();

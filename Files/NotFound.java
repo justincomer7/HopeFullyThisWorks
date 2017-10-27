@@ -51,6 +51,7 @@ public class NotFound extends JFrame {
 		JButton btnRetry = new JButton("Retry?");
 		btnRetry.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//sends back to phone number 
 				PhoneNumber phone = new PhoneNumber();
 				phone.setVisible(true);
 				dispose();
@@ -62,6 +63,7 @@ public class NotFound extends JFrame {
 		JButton btnNewButton = new JButton("Create new");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//allows user to create new account
 				InformationInput input = new InformationInput();
 				input.setVisible(true);
 				dispose();

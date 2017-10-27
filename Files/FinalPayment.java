@@ -20,7 +20,7 @@ public class FinalPayment extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FinalPayment frame = new FinalPayment( (Double) null, null);
+					FinalPayment frame = new FinalPayment((Double) null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class FinalPayment extends JFrame {
 	 */
 	public FinalPayment(double option, FinalOrder order) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 433, 186);
+		setBounds(100, 100, 421, 174);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -45,6 +45,7 @@ public class FinalPayment extends JFrame {
 		contentPane.add(textPane);
 		if(option == 1)
 		{
+			//displays payment option with price 
 			Pizza newpizza = new Pizza();
 			textPane.setText(newpizza.selectCard(order.getNumber()) + "\n" + order.getPrice());
 		}
@@ -56,13 +57,14 @@ public class FinalPayment extends JFrame {
 		JButton btnFinalize = new JButton("Finalize");
 		btnFinalize.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Sign sign = new Sign(order);
+				Sign sign = new Sign(order, option);
 				sign.setVisible(true);
 				dispose();
 			}
 		});
 		btnFinalize.setBounds(274, 11, 123, 23);
 		contentPane.add(btnFinalize);
+		textPane.setEditable(false);
 		
 		JButton btnChange = new JButton("Change option");
 		btnChange.addActionListener(new ActionListener() {
@@ -75,16 +77,7 @@ public class FinalPayment extends JFrame {
 		btnChange.setBounds(274, 58, 123, 23);
 		contentPane.add(btnChange);
 		
-		
-		//send user back to log in 
 		JButton btnNewButton = new JButton("Start Over");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				PhoneNumber phone = new PhoneNumber();
-				phone.setVisible(true);
-				dispose();
-			}
-		});
 		btnNewButton.setBounds(274, 104, 123, 23);
 		contentPane.add(btnNewButton);
 	}
