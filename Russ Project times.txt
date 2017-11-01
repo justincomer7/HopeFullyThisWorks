@@ -1,0 +1,9 @@
+Group Meeting (Planning)			(Aug 28)	1 hrs
+Updated Resume for project 		 	(Sept 22)	30 mins
+Created ER diagram 		 		(Sept 28)	1 hrs
+Created Class diagram   			(Oct 7)		1 hrs
+Test run of application Looking for bugs	(Oct 10)	30 mins
+Created Walkthrough of application for users	(Oct 15)	1 hrs
+Meeting before class to discuss remaining work  (Oct 25)	2 hrs
+Recreated Class diagram because i goofed	(Oct 26)	1 hr 30 mins
+Tested application for errors			(nov 1) 	30 mins
